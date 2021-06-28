@@ -6,10 +6,7 @@ mongoose.connect('mongodb://localhost:27017/todoapp',{
 })
 
 const User=mongoose.model('User',{
-    uid:Number,
-    username:String,
-    password:String,
-    todos:[]
+    todos:Array
 })
 module.exports={
     User

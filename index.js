@@ -16,33 +16,18 @@ app.use(cors({
 
 app.use(express.json());
 
-app.post('/login',(req,res)=>{
-    console.log(req.body);
-    dataservice.login(req,req.body.uid,req.body.pswd)
-    .then(result=>{
-        res.status(result.statuscode).json(result)
-
-    })
-})
-app.post('/register',(req,res)=>{
-    dataservice.register(req.body.uname,req.body.uid,req.body.pswd)
-    .then(result=>{
-        res.status(result.statuscode).json(result)
-
-    })
-});
 
 
 app.post('/add',(req,res)=>{
 
-    dataservice.add(req,req.body.uid,req.body.todo)
+    dataservice.add(req,req.body.todo)
     .then(result=>{
         res.status(result.statuscode).json(result)
 
     })
 })
 app.post('/view',(req,res)=>{
-    dataservice.view(req.body.uid)
+    dataservice.view()
     .then(result=>{
         //console.log(res.json(result));
         res.status(result.statuscode).json(result)
